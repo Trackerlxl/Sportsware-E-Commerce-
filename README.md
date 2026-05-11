@@ -33,16 +33,44 @@ El objetivo principal del proyecto es fortalecer conocimientos en:
 
 ```bash
 Sportsware/
-│
-├── assets/
+/
+├── index.php
+├── php/
+│   ├── config.php
+│   ├── verificar_sesion.php
+│   ├── login.php
+│   ├── registro.php
+│   ├── logout.php
+│   ├── carrito_sync.php
+│   ├── procesar_pedido.php
+│   └── buscar_sugerencias.php
+├── html/
+│   ├── home.php
+│   ├── productos.php
+│   ├── producto-detalle.php
+│   ├── carrito.php
+│   ├── checkout.php
+│   ├── perfil.php
+│   ├── registro.php
+│   └── pedido-confirmado.php
 ├── css/
+│   ├── main.css
+│   ├── productos.css
+│   ├── carrito.css
+│   ├── detalle.css
+│   ├── formularios.css
+│   ├── slider.css
+│   └── buscador_estilos.css
 ├── js/
-├── images/
-├── database/
-├── index.html
-├── products.html
-├── cart.html
-└── README.md
+│   ├── productos-data.js
+│   ├── carrito.js
+│   ├── buscador.js
+│   ├── main.js
+│   ├── productos.js
+│   ├── detalle.js
+│   └── slider.js
+└── images/
+    └── ...
 ```
 
 ---
@@ -116,15 +144,11 @@ http://localhost/Sportsware
 
 ---
 
-# 📸 Capturas del Proyecto
-
-Puedes agregar aquí imágenes o screenshots de la interfaz.
-
----
-
 # 👨‍💻 Autor
-
+David Julian Perdomo Quimbaya 
+Juan David Artunduaga 
 Oscar Mauricio Polanía
+
 
 GitHub:  
 https://github.com/Trackerlxl
