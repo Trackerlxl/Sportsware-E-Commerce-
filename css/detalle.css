@@ -1,0 +1,497 @@
+/* ============================================================
+   SPORTSWARE – detalle.css
+   Vista de detalle de un producto individual
+   ============================================================ */
+
+/* ── Migas de pan (breadcrumb) ───────────────────────────── */
+.breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 20px 0;
+  font-size: 13px;
+  color: var(--gris-texto);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--gris-texto);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--azul);
+}
+
+.breadcrumb span.sep {
+  color: #cbd5e1;
+}
+
+.breadcrumb span.actual {
+  color: var(--gris-oscuro);
+  font-weight: 500;
+}
+
+/* ── Contenedor principal del detalle ────────────────────── */
+.detalle-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 30px auto 60px;
+  max-width: 1200px;
+  padding: 0 20px;
+  align-items: start;
+}
+
+/* ── Columna izquierda: imagen ───────────────────────────── */
+.detalle-imagen {
+  position: sticky;
+  top: 90px;
+}
+
+.detalle-imagen .img-principal {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 520px;
+  box-shadow: var(--sombra);
+}
+
+/* Miniaturas de imágenes adicionales */
+.detalle-miniaturas {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.detalle-miniatura {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.6;
+}
+
+.detalle-miniatura:hover,
+.detalle-miniatura.active {
+  border-color: var(--azul);
+  opacity: 1;
+}
+
+/* ── Columna derecha: información ────────────────────────── */
+.detalle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Badge de categoría */
+.detalle-categoria {
+  font-size: 12px;
+  color: var(--azul);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Título del producto */
+.detalle-info h1 {
+  font-size: 32px;
+  margin-bottom: 6px;
+  color: var(--gris-oscuro);
+  line-height: 1.2;
+}
+
+/* Marca */
+.detalle-marca {
+  color: var(--gris-texto);
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.detalle-marca a {
+  color: var(--azul);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.detalle-marca a:hover {
+  color: var(--azul-oscuro);
+}
+
+/* Rating */
+.detalle-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--gris-texto);
+}
+
+.detalle-rating .estrellas {
+  color: #f59e0b;
+  font-size: 16px;
+}
+
+.detalle-rating a {
+  color: var(--azul);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* Precio */
+.detalle-precio {
+  font-size: 28px;
+  color: var(--azul);
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.detalle-precio-antes {
+  font-size: 18px;
+  color: #94a3b8;
+  text-decoration: line-through;
+  font-weight: 400;
+}
+
+.detalle-descuento {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blanco);
+  background: var(--naranja);
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+/* Disponibilidad */
+.detalle-stock {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detalle-stock.en-stock {
+  color: #16a34a;
+}
+
+.detalle-stock.sin-stock {
+  color: #dc2626;
+}
+
+/* Separador */
+.detalle-divider {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 16px 0;
+}
+
+/* Descripción */
+.detalle-descripcion {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  font-size: 15px;
+  color: var(--gris-oscuro);
+}
+
+/* ── Selector de color ───────────────────────────────────── */
+.detalle-colores {
+  margin-bottom: 20px;
+}
+
+.detalle-colores label,
+.detalle-tallas-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--gris-oscuro);
+}
+
+.colores {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.color-opcion {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.color-opcion:hover,
+.color-opcion.active {
+  transform: scale(1.15);
+  border-color: var(--azul);
+  box-shadow: 0 0 0 2px var(--blanco), 0 0 0 4px var(--azul);
+}
+
+/* ── Selector de talla ───────────────────────────────────── */
+.detalle-tallas {
+  margin-bottom: 20px;
+}
+
+.tallas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.talla {
+  padding: 8px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gris-oscuro);
+  background: var(--blanco);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.talla:hover {
+  background: var(--azul);
+  color: var(--blanco);
+  border-color: var(--azul);
+}
+
+.talla.active {
+  background: var(--azul);
+  color: var(--blanco);
+  border-color: var(--azul);
+}
+
+.talla.agotada {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.talla.agotada:hover {
+  background: var(--blanco);
+  color: var(--gris-oscuro);
+  border-color: #cbd5e1;
+}
+
+/* ── Selector de cantidad ────────────────────────────────── */
+.detalle-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.detalle-cantidad label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gris-oscuro);
+}
+
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cantidad-control button {
+  width: 36px;
+  height: 36px;
+  background: #f8fafc;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gris-oscuro);
+  transition: background 0.2s ease;
+}
+
+.cantidad-control button:hover {
+  background: #e2e8f0;
+}
+
+.cantidad-control input {
+  width: 50px;
+  height: 36px;
+  border: none;
+  border-left: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  text-align: center;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gris-oscuro);
+}
+
+.cantidad-control input:focus {
+  outline: none;
+}
+
+/* ── Botones de acción ───────────────────────────────────── */
+.detalle-acciones {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+#añadirCarritoBtn {
+  flex: 1;
+  background: var(--azul);
+  color: var(--blanco);
+  border: none;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+  min-width: 200px;
+}
+
+#añadirCarritoBtn:hover {
+  background: var(--azul-oscuro);
+  transform: translateY(-2px);
+}
+
+#añadirCarritoBtn:active {
+  transform: translateY(0);
+}
+
+.btn-favorito-detalle {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  border: 1px solid #e2e8f0;
+  background: var(--blanco);
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-favorito-detalle:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* ── Beneficios / envío ──────────────────────────────────── */
+.detalle-beneficios {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--gris-texto);
+}
+
+.beneficio-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.beneficio-item i {
+  color: var(--azul);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* ── Sección de productos relacionados ───────────────────── */
+.relacionados {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.relacionados h2 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: var(--gris-oscuro);
+  border-bottom: 2px solid var(--azul);
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MEDIA QUERIES – Móvil
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .detalle-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .detalle-imagen {
+    position: static;
+  }
+
+  .detalle-info h1 {
+    font-size: 26px;
+  }
+
+  .detalle-precio {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detalle-container {
+    margin: 20px auto 40px;
+    padding: 0 15px;
+  }
+
+  .detalle-info h1 {
+    font-size: 22px;
+  }
+
+  .detalle-precio {
+    font-size: 22px;
+  }
+
+  .talla {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+  #añadirCarritoBtn {
+    font-size: 15px;
+    padding: 12px 20px;
+    min-width: 100%;
+  }
+
+  .detalle-acciones {
+    flex-direction: column;
+  }
+
+  .btn-favorito-detalle {
+    width: 100%;
+    border-radius: 30px;
+    height: 46px;
+  }
+}

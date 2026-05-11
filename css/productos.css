@@ -1,0 +1,471 @@
+/* ============================================================
+   SPORTSWARE – productos.css
+   Catálogo de productos: layout, filtros, tarjetas
+   ============================================================ */
+
+/* ── Cabecera de página de productos ─────────────────────── */
+.productos-header {
+  background: var(--gris-oscuro);
+  color: var(--blanco);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.productos-header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.productos-header p {
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+/* ── Barra de herramientas (ordenar / contar) ─────────────── */
+.productos-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.productos-toolbar span {
+  font-size: 14px;
+  color: var(--gris-texto);
+}
+
+.productos-toolbar select {
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--gris-oscuro);
+  cursor: pointer;
+  background: var(--blanco);
+}
+
+.productos-toolbar select:focus {
+  outline: none;
+  border-color: var(--azul);
+}
+
+/* ── Layout principal (filtros + grid) ───────────────────── */
+.productos-layout {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  align-items: flex-start;
+}
+
+/* ── Panel de filtros ────────────────────────────────────── */
+.filtros {
+  width: 250px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+}
+
+.filtros-card {
+  background: var(--blanco);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+.filtros-titulo {
+  padding: 16px 20px;
+  background: var(--gris-oscuro);
+  color: var(--blanco);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Cada grupo de filtros */
+.filtro-grupo {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.filtro-grupo:last-child {
+  border-bottom: none;
+}
+
+.filtros h3 {
+  margin-bottom: 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gris-texto);
+  font-weight: 600;
+}
+
+.filtros ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filtros li {
+  margin-bottom: 8px;
+}
+
+.filtros li label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--gris-oscuro);
+  transition: color 0.2s ease;
+}
+
+.filtros li label:hover {
+  color: var(--azul);
+}
+
+.filtros li input[type="checkbox"] {
+  accent-color: var(--azul);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Filtro de rango de precio */
+.filtro-precio {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filtro-precio input[type="range"] {
+  accent-color: var(--azul);
+  width: 100%;
+}
+
+.filtro-precio-valores {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--gris-texto);
+}
+
+/* Botón limpiar filtros */
+.btn-limpiar-filtros {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--gris-texto);
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+}
+
+.btn-limpiar-filtros:hover {
+  border-color: var(--azul);
+  color: var(--azul);
+}
+
+/* ── Grid de productos ───────────────────────────────────── */
+.productos-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* ── Tarjeta de producto ─────────────────────────────────── */
+.producto-card {
+  background: var(--blanco);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Contenedor imagen con badge */
+.producto-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.producto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.producto-card:hover img {
+  transform: scale(1.04);
+}
+
+/* Badge en la tarjeta */
+.producto-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--naranja);
+  color: var(--blanco);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+/* Botón de favorito */
+.btn-favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-favorito:hover {
+  background: var(--blanco);
+  transform: scale(1.1);
+}
+
+.btn-favorito.activo {
+  color: #ef4444;
+}
+
+/* Información de la tarjeta */
+.producto-info {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.producto-categoria {
+  font-size: 12px;
+  color: var(--azul);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.producto-nombre {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gris-oscuro);
+  line-height: 1.3;
+}
+
+.producto-marca {
+  font-size: 13px;
+  color: var(--gris-texto);
+  margin-bottom: 8px;
+}
+
+/* Precios */
+.producto-precios {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.producto-precio {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--gris-oscuro);
+}
+
+.producto-precio-antes {
+  font-size: 14px;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.producto-descuento {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--naranja);
+}
+
+/* Rating / estrellas */
+.producto-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--gris-texto);
+}
+
+.estrellas {
+  color: #f59e0b;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* Botón detalle */
+.btn-detalle {
+  background: var(--azul);
+  color: var(--blanco);
+  border: none;
+  padding: 9px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: auto;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-detalle:hover {
+  background: var(--azul-oscuro);
+  transform: translateY(-1px);
+}
+
+/* ── Estado vacío (sin resultados) ───────────────────────── */
+.productos-vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gris-texto);
+}
+
+.productos-vacio i {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0.4;
+}
+
+/* ── Paginación ──────────────────────────────────────────── */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.paginacion button {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: var(--blanco);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--gris-oscuro);
+  transition: all 0.2s ease;
+}
+
+.paginacion button:hover,
+.paginacion button.active {
+  background: var(--azul);
+  color: var(--blanco);
+  border-color: var(--azul);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MEDIA QUERIES – Tablet y Móvil
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .productos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .productos-layout {
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 20px;
+  }
+
+  .filtros {
+    width: 100%;
+    position: static;
+  }
+
+  .filtros-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filtros-titulo {
+    grid-column: 1 / -1;
+  }
+
+  .productos-header h1 {
+    font-size: 24px;
+  }
+
+  .productos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .producto-card img {
+    height: 160px;
+  }
+
+  .producto-nombre {
+    font-size: 14px;
+  }
+
+  .producto-precio {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filtros-card {
+    grid-template-columns: 1fr;
+  }
+
+  .productos-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .producto-card img {
+    height: 140px;
+  }
+
+  .btn-detalle {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}

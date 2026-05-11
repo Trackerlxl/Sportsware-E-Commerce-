@@ -1,0 +1,219 @@
+/* ============================================================
+   SPORTSWARE – slider.css
+   Slider de entrada mejorado: sin bordes, texto legible, diseño deportivo
+   ============================================================ */
+
+/* Contenedor principal del slider */
+.slider {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Cada slide */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.65); /* oscurece un poco la imagen para mejorar contraste */
+}
+
+/* Overlay adicional (por si el filtro no es suficiente) */
+.slider-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* oscurece todo el slider */
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Contenido centrado */
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 90%;
+    max-width: 900px;
+    pointer-events: none;
+}
+
+.contenido-inner {
+    pointer-events: auto; /* para que el botón sea clickeable */
+}
+
+/* Tagline pequeña */
+.tagline {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #f97316;
+    background: rgba(0,0,0,0.4);
+    padding: 6px 16px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(4px);
+}
+
+/* Título principal */
+.contenido h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5.5rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.5);
+    margin: 0;
+    line-height: 1.1;
+}
+
+/* Descripción */
+.desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+/* Botón de entrada */
+.btn-entrar {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-entrar:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.5);
+    gap: 16px;
+}
+
+.btn-entrar i {
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.btn-entrar:hover i {
+    transform: translateX(5px);
+}
+
+/* Dots de navegación */
+.dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    padding: 0;
+}
+
+.dot.active {
+    background: #f97316;
+    transform: scale(1.3);
+    box-shadow: 0 0 8px #f97316;
+}
+
+.dot:hover {
+    background: #f97316;
+    transform: scale(1.2);
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+    .contenido h1 {
+        font-size: 2.8rem;
+        letter-spacing: 4px;
+    }
+    .tagline {
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 4px 12px;
+    }
+    .desc {
+        font-size: 0.9rem;
+    }
+    .btn-entrar {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+    .dots {
+        bottom: 20px;
+        gap: 12px;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenido h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    .btn-entrar {
+        padding: 8px 20px;
+        font-size: 0.75rem;
+    }
+}
